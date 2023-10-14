@@ -1,14 +1,14 @@
-export var STORAGE_KEY = "todos-vuejs-demo";
-export var todoStorage = {
-  fetch() {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || []);
-    todos.array.forEach((todo, index) => {
-      todo.id = index;
-    });
-    todoStorage.uid = todos.length;
+export default {
+  fetch(STORAGE_KEY) {
+    var todos = localStorage.getItem(STORAGE_KEY);
+    todos = todos ? JSON.parse(todos) : [];
+    // todos.array.forEach((todo, index) => {
+    //   todo.id = index;
+    // });
+    console.log("todos:" + todos);
     return todos;
   },
-  save(todos) {
+  save(todos, STORAGE_KEY) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   },
 };
