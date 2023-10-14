@@ -6,7 +6,7 @@
         {{ todo.text }}<input type="checkbox" v-model="todo.completed" />
       </li>
     </ul>
-    <input type="text" v-model="todoForAdd" />
+    <input type="text" v-model="todoForAdd" @keyup.enter="addTodo()" />
     <button @click="addTodo()">追加</button>
     <br />
     <button @click="removeTodo()">チェックしたtodoを削除する</button>
